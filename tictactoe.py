@@ -111,7 +111,5 @@ button7.grid(row=2, column=0)
 button8.grid(row=2, column=1)
 button9.grid(row=2, column=2)
 
-# Lancer la boucle principale Tkinter
-window.mainloop()
 
 
