@@ -1,16 +1,14 @@
-import tkinter as tk
-from tkinter import messagebox
+from tkinter import Tk, Button, messagebox
 
-window = tk.Tk()
-window.title("TIC-TAC-TOE")
+# Initialisation des variables globales
+board = [' ' for _ in range(9)]  # Plateau de jeu
+digits = [1, 2, 3, 4, 5, 6, 7, 8, 9]  # Cases disponibles
+count = 0  # Compteur de coups
+mark = 'X'  # Marque du joueur actuel (sera mis à jour)
 
-digits = list(range(1, 10))
-
-mark = ''
-
-count = 0
-
-panels = ['panel'] + list(range(1, 10))
+# Créer la fenêtre principale
+root = Tk()
+root.title("Tic-Tac-Toe")
 
 # Fonction pour vérifier si quelqu'un a gagné
 def win():
@@ -81,24 +79,24 @@ def checker(digit):
             messagebox.showinfo("Victoire", "Player1 wins")
         else:
             messagebox.showinfo("Victoire", "Player2 wins")
-        window.destroy()
+        root.destroy()
         return
 
     # Vérifier le match nul
     if count > 8 and win() != 'X' and win() != 'O':
         messagebox.showinfo("Match Tied", "Match Tied")
-        window.destroy()
+        root.destroy()
 
 # Créer les boutons et les placer sur la grille
-button1 = Button(window, text=" ", font="Arial 20", width=5, height=2, command=lambda: checker(1))
-button2 = Button(window, text=" ", font="Arial 20", width=5, height=2, command=lambda: checker(2))
-button3 = Button(window, text=" ", font="Arial 20", width=5, height=2, command=lambda: checker(3))
-button4 = Button(window, text=" ", font="Arial 20", width=5, height=2, command=lambda: checker(4))
-button5 = Button(window, text=" ", font="Arial 20", width=5, height=2, command=lambda: checker(5))
-button6 = Button(window, text=" ", font="Arial 20", width=5, height=2, command=lambda: checker(6))
-button7 = Button(window, text=" ", font="Arial 20", width=5, height=2, command=lambda: checker(7))
-button8 = Button(window, text=" ", font="Arial 20", width=5, height=2, command=lambda: checker(8))
-button9 = Button(window, text=" ", font="Arial 20", width=5, height=2, command=lambda: checker(9))
+button1 = Button(root, text=" ", font="Arial 20", width=5, height=2, command=lambda: checker(1))
+button2 = Button(root, text=" ", font="Arial 20", width=5, height=2, command=lambda: checker(2))
+button3 = Button(root, text=" ", font="Arial 20", width=5, height=2, command=lambda: checker(3))
+button4 = Button(root, text=" ", font="Arial 20", width=5, height=2, command=lambda: checker(4))
+button5 = Button(root, text=" ", font="Arial 20", width=5, height=2, command=lambda: checker(5))
+button6 = Button(root, text=" ", font="Arial 20", width=5, height=2, command=lambda: checker(6))
+button7 = Button(root, text=" ", font="Arial 20", width=5, height=2, command=lambda: checker(7))
+button8 = Button(root, text=" ", font="Arial 20", width=5, height=2, command=lambda: checker(8))
+button9 = Button(root, text=" ", font="Arial 20", width=5, height=2, command=lambda: checker(9))
 
 # Placer les boutons sur la grille
 button1.grid(row=0, column=0)
@@ -111,5 +109,5 @@ button7.grid(row=2, column=0)
 button8.grid(row=2, column=1)
 button9.grid(row=2, column=2)
 
-
-
+# Lancer la boucle principale Tkinter
+root.mainloop()
