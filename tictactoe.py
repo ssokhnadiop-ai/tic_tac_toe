@@ -1,3 +1,6 @@
+
+
+
 from tkinter import Tk, Button, messagebox
 
 # Initialisation des variables globales
@@ -21,6 +24,7 @@ def win():
         if board[a] == board[b] == board[c] and board[a] != ' ':
             return board[a]  # Retourne 'X' ou 'O'
     return None
+    
 
 # Fonction checker() complète
 def checker(digit):
